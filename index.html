@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
     <style>
-        /* ---------- ОСНОВА ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +25,6 @@
             padding: 20px;
         }
 
-        /* ---------- ОСНОВНАЯ КАРТОЧКА ---------- */
         .sheet {
             max-width: 860px;
             width: 100%;
@@ -53,7 +51,6 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* ---------- ШАПКА ---------- */
         .header {
             border-bottom: 1px solid #1f0f0f;
             padding-bottom: 16px;
@@ -98,7 +95,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* ---------- РАЗДЕЛИТЕЛЬ ---------- */
         .divider {
             text-align: center;
             margin: 22px 0;
@@ -126,7 +122,6 @@
             z-index: 1;
         }
 
-        /* ---------- СЕТКА ХАРАКТЕРИСТИК ---------- */
         .stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -168,7 +163,6 @@
             color: #b06a5a;
         }
 
-        /* ---------- БИО ---------- */
         .bio {
             padding: 14px 16px;
             margin-bottom: 14px;
@@ -209,7 +203,6 @@
             font-size: 15px;
         }
 
-        /* ---------- ТЕГИ ---------- */
         .tags {
             display: flex;
             flex-wrap: wrap;
@@ -234,9 +227,6 @@
             color: #b06a5a;
         }
 
-        /* ============================================================
-           ГЛАВЫ (ЦЕЛИКОМ)
-           ============================================================ */
         .chapter {
             padding: 18px 20px;
             margin-bottom: 14px;
@@ -313,23 +303,11 @@
             margin-bottom: 2px;
         }
 
-        /* ---------- АНИМАЦИИ ---------- */
-        .fade-in {
-            animation: fadeIn 0.3s ease forwards;
+        .chapter ul li .highlight {
+            color: #b06a5a;
+            font-weight: 600;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ---------- АДАПТИВ ---------- */
         @media (max-width: 550px) {
             .sheet {
                 padding: 16px 12px 20px;
@@ -363,7 +341,6 @@
 
     <div class="sheet">
 
-        <!-- ====== ШАПКА ====== -->
         <div class="header">
             <div class="symbol">◈ ◈ ◈</div>
             <h1>Эсмереральда</h1>
@@ -373,10 +350,8 @@
             <div class="tagline">«Арлуна одаривает меня удачей... а я хватаю её за хвост»</div>
         </div>
 
-        <!-- ====== РАЗДЕЛИТЕЛЬ ====== -->
         <div class="divider"><span>✦ ✦ ✦</span></div>
 
-        <!-- ====== ХАРАКТЕРИСТИКИ ====== -->
         <div class="stats">
             <div class="stat">
                 <span class="label">возраст</span>
@@ -404,7 +379,6 @@
             </div>
         </div>
 
-        <!-- ====== БИО ====== -->
         <div class="bio">
             <div class="title">◈ о персонаже</div>
             <p>
@@ -418,7 +392,6 @@
             </span>
         </div>
 
-        <!-- ====== ТЕГИ ====== -->
         <div class="tags">
             <span class="tag blood">проклята каргой</span>
             <span class="tag">азартный игрок</span>
@@ -429,10 +402,9 @@
             <span class="tag blood">хвост удачи</span>
         </div>
 
-        <!-- ====== РАЗДЕЛИТЕЛЬ ====== -->
         <div class="divider"><span>📜 история</span></div>
 
-        <!-- ====== ГЛАВА 1 ====== -->
+        <!-- ГЛАВА 1 -->
         <div class="chapter">
             <div class="chapter-title">◈ глава первая — начало</div>
             <p>
@@ -458,7 +430,7 @@
             </p>
         </div>
 
-        <!-- ====== ГЛАВА 2 ====== -->
+        <!-- ГЛАВА 2 -->
         <div class="chapter">
             <div class="chapter-title">◈ глава вторая — остров черепа</div>
             <p>
@@ -493,7 +465,7 @@
             </p>
         </div>
 
-        <!-- ====== ГЛАВА 3 ====== -->
+        <!-- ГЛАВА 3 -->
         <div class="chapter">
             <div class="chapter-title">◈ глава третья — скитание по подземью и алхимия</div>
             <p>
@@ -519,7 +491,7 @@
             </p>
         </div>
 
-        <!-- ====== ГЛАВА 4 ====== -->
+        <!-- ГЛАВА 4 -->
         <div class="chapter">
             <div class="chapter-title">◈ глава четвёртая — золотой посох</div>
             <p>
