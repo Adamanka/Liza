@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================================
-    //  АУДИОПЛЕЕР
+    //  АУДИОПЛЕЕР — D&D СТИЛЬ
     // ============================================================
     const audio = document.getElementById('bgMusic');
     const audioIcon = document.getElementById('audioIcon');
@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const audioVolume = document.getElementById('audioVolume');
 
     let isPlaying = false;
+
+    // Состояния иконок в стиле D&D
+    const ICONS = {
+        playing: '♫',
+        paused: '♪',
+        muted: '♩'
+    };
 
     // Устанавливаем начальную громкость (50%)
     audio.volume = 0.5;
@@ -38,10 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isPlaying) {
             audio.play().then(() => {
                 isPlaying = true;
-                audioIcon.textContent = '🔊';
+                audioIcon.textContent = ICONS.playing;
             }).catch(() => {
-                // Если браузер блокирует автозапуск — показываем иконку "выключено"
-                audioIcon.textContent = '🔇';
+                audioIcon.textContent = ICONS.muted;
             });
         }
     }
@@ -56,13 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isPlaying) {
             audio.pause();
             isPlaying = false;
-            audioIcon.textContent = '🔇';
+            audioIcon.textContent = ICONS.paused;
         } else {
             audio.play().then(() => {
                 isPlaying = true;
-                audioIcon.textContent = '🔊';
+                audioIcon.textContent = ICONS.playing;
             }).catch(() => {
-                audioIcon.textContent = '🔇';
+                audioIcon.textContent = ICONS.muted;
             });
         }
     });
@@ -75,20 +81,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Меняем иконку в зависимости от уровня
         if (val === 0) {
-            audioIcon.textContent = '🔇';
-        } else if (val <= 30) {
-            audioIcon.textContent = '🔈';
-        } else if (val <= 70) {
-            audioIcon.textContent = '🔉';
+            audioIcon.textContent = ICONS.muted;
+        } else if (isPlaying) {
+            audioIcon.textContent = ICONS.playing;
         } else {
-            audioIcon.textContent = '🔊';
+            audioIcon.textContent = ICONS.paused;
         }
 
         // Если музыка выключена и громкость > 0 — включаем
         if (!isPlaying && val > 0) {
             audio.play().then(() => {
                 isPlaying = true;
-                audioIcon.textContent = '🔊';
+                audioIcon.textContent = ICONS.playing;
             }).catch(() => {});
         }
     });
@@ -105,13 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
         audioSlider.value = val;
         audioVolume.textContent = val + '%';
         if (val === 0) {
-            audioIcon.textContent = '🔇';
-        } else if (val <= 30) {
-            audioIcon.textContent = '🔈';
-        } else if (val <= 70) {
-            audioIcon.textContent = '🔉';
+            audioIcon.textContent = ICONS.muted;
+        } else if (isPlaying) {
+            audioIcon.textContent = ICONS.playing;
         } else {
-            audioIcon.textContent = '🔊';
+            audioIcon.textContent = ICONS.paused;
         }
     });
 });
