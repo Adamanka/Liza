@@ -16,6 +16,111 @@ body {
     padding: 20px;
 }
 
+/* ---------- АУДИО КОНТРОЛ (В ПРАВОМ ВЕРХНЕМ УГЛУ) ---------- */
+.audio-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(18, 10, 10, 0.92);
+    border: 1px solid #2a1515;
+    border-radius: 30px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.audio-control:hover {
+    border-color: #4a2222;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
+}
+
+.audio-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: #b06a5a;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.audio-icon:hover {
+    transform: scale(1.1);
+    color: #d48a7a;
+}
+
+.audio-slider {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #2a1515, #b06a5a);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.audio-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #b06a5a;
+    border: 2px solid #2a1515;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.audio-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    background: #d48a7a;
+}
+
+.audio-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #b06a5a;
+    border: 2px solid #2a1515;
+    cursor: pointer;
+}
+
+.audio-volume {
+    color: #8a7068;
+    font-size: 12px;
+    font-family: 'Cinzel', serif;
+    min-width: 38px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* ====== АДАПТИВ ДЛЯ АУДИОКОНТРОЛА ====== */
+@media (max-width: 550px) {
+    .audio-control {
+        top: 12px;
+        right: 12px;
+        padding: 6px 12px;
+        gap: 8px;
+        border-radius: 20px;
+    }
+
+    .audio-icon {
+        font-size: 16px;
+    }
+
+    .audio-slider {
+        width: 50px;
+    }
+
+    .audio-volume {
+        font-size: 10px;
+        min-width: 30px;
+    }
+}
+
 /* ---------- ОСНОВНАЯ КАРТОЧКА ---------- */
 .sheet {
     max-width: 860px;
