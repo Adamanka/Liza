@@ -7,362 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-    <style>
-        /* ---------- ОСНОВА ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0d0808;
-            background-image: radial-gradient(ellipse at 50% 0%, #1f0d0d 0%, #0d0808 75%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            font-family: 'Cormorant Garamond', serif;
-            padding: 20px;
-        }
-
-        /* ---------- ОСНОВНАЯ КАРТОЧКА ---------- */
-        .sheet {
-            max-width: 860px;
-            width: 100%;
-            background: #120a0a;
-            border: 1px solid #2a1515;
-            border-radius: 6px;
-            padding: 30px 28px 32px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
-            position: relative;
-            margin-top: 10px;
-        }
-
-        .sheet::before {
-            content: "◈ ◈ ◈";
-            position: absolute;
-            top: -11px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #120a0a;
-            padding: 0 16px;
-            color: #4a2222;
-            font-size: 12px;
-            letter-spacing: 10px;
-            font-family: 'Cinzel', serif;
-        }
-
-        /* ---------- ШАПКА ---------- */
-        .header {
-            border-bottom: 1px solid #1f0f0f;
-            padding-bottom: 16px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .header .symbol {
-            color: #4a2222;
-            font-size: 13px;
-            letter-spacing: 6px;
-            font-family: 'Cinzel', serif;
-            margin-bottom: 2px;
-        }
-
-        .header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 34px;
-            color: #c4a090;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 700;
-        }
-
-        .header .sub {
-            font-style: italic;
-            font-size: 17px;
-            color: #8a7068;
-            margin-top: 4px;
-        }
-
-        .header .sub .accent {
-            color: #b06a5a;
-        }
-
-        .header .tagline {
-            font-size: 15px;
-            color: #6a5550;
-            margin-top: 6px;
-            font-style: italic;
-            letter-spacing: 0.5px;
-        }
-
-        /* ---------- РАЗДЕЛИТЕЛЬ ---------- */
-        .divider {
-            text-align: center;
-            margin: 22px 0;
-            position: relative;
-        }
-
-        .divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #2a1515, #4a2222, #2a1515, transparent);
-        }
-
-        .divider span {
-            background: #120a0a;
-            padding: 0 14px;
-            color: #4a2222;
-            font-family: 'Cinzel', serif;
-            font-size: 12px;
-            letter-spacing: 4px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ---------- СЕТКА ХАРАКТЕРИСТИК ---------- */
-        .stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px 24px;
-            padding: 14px 16px;
-            margin-bottom: 16px;
-            background: #0d0707;
-            border: 1px solid #1a0d0d;
-            border-radius: 4px;
-        }
-
-        .stat {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #160b0b;
-            padding: 5px 0;
-            color: #c4b0a8;
-            font-size: 15px;
-        }
-
-        .stat:last-child {
-            border-bottom: none;
-        }
-
-        .stat .label {
-            color: #6a5550;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-family: 'Cinzel', serif;
-        }
-
-        .stat .value {
-            color: #d4c0b8;
-            font-weight: 600;
-        }
-
-        .stat .value.accent {
-            color: #b06a5a;
-        }
-
-        /* ---------- БИО ---------- */
-        .bio {
-            padding: 14px 16px;
-            margin-bottom: 14px;
-            background: #0d0707;
-            border: 1px solid #1a0d0d;
-            border-radius: 4px;
-        }
-
-        .bio .title {
-            color: #6a5550;
-            font-family: 'Cinzel', serif;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #160b0b;
-            padding-bottom: 6px;
-            margin-bottom: 10px;
-        }
-
-        .bio p {
-            color: #c4b0a8;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        .bio p .highlight {
-            color: #b06a5a;
-            font-weight: 600;
-        }
-
-        .bio .quote {
-            display: block;
-            border-left: 2px solid #2a1515;
-            padding: 8px 16px;
-            margin: 10px 0 4px;
-            font-style: italic;
-            color: #a08880;
-            font-size: 15px;
-        }
-
-        /* ---------- ТЕГИ ---------- */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 10px 0 16px;
-        }
-
-        .tag {
-            background: #0d0707;
-            border: 1px solid #1a0d0d;
-            border-radius: 18px;
-            padding: 3px 16px;
-            color: #7a6058;
-            font-size: 12px;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 0.5px;
-            text-transform: lowercase;
-        }
-
-        .tag.blood {
-            border-color: #2a1515;
-            color: #b06a5a;
-        }
-
-        /* ============================================================
-           ГЛАВЫ (ЦЕЛИКОМ)
-           ============================================================ */
-        .chapter {
-            padding: 18px 20px;
-            margin-bottom: 14px;
-            background: #0d0707;
-            border: 1px solid #1a0d0d;
-            border-radius: 4px;
-        }
-
-        .chapter:last-child {
-            margin-bottom: 0;
-        }
-
-        .chapter-title {
-            font-family: 'Cinzel', serif;
-            font-size: 16px;
-            color: #b06a5a;
-            letter-spacing: 1.5px;
-            border-bottom: 1px solid #1a0d0d;
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .chapter p {
-            color: #c4b0a8;
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-
-        .chapter p:last-child {
-            margin-bottom: 0;
-        }
-
-        .chapter .highlight {
-            color: #b06a5a;
-            font-weight: 600;
-        }
-
-        .chapter .italic {
-            font-style: italic;
-            color: #8a7068;
-        }
-
-        .chapter .curse-text {
-            display: block;
-            border-left: 2px solid #2a1515;
-            padding: 8px 16px;
-            margin: 10px 0;
-            font-style: italic;
-            color: #a08880;
-            font-size: 14px;
-        }
-
-        .chapter .diary-entry {
-            display: block;
-            border-left: 2px solid #4a2222;
-            padding: 8px 16px;
-            margin: 10px 0;
-            font-style: italic;
-            color: #b0a098;
-            font-size: 14px;
-        }
-
-        .chapter ul {
-            color: #c4b0a8;
-            font-size: 15px;
-            line-height: 1.7;
-            padding-left: 20px;
-            margin: 8px 0;
-        }
-
-        .chapter ul li {
-            margin-bottom: 2px;
-        }
-
-        .chapter ul li .highlight {
-            color: #b06a5a;
-            font-weight: 600;
-        }
-
-        /* ---------- АНИМАЦИИ ---------- */
-        .fade-in {
-            animation: fadeIn 0.3s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ---------- АДАПТИВ ---------- */
-        @media (max-width: 550px) {
-            .sheet {
-                padding: 16px 12px 20px;
-            }
-
-            .header h1 {
-                font-size: 24px;
-                letter-spacing: 2px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-                padding: 10px 12px;
-            }
-
-            .bio p {
-                font-size: 14px;
-            }
-
-            .chapter p {
-                font-size: 14px;
-            }
-
-            .chapter {
-                padding: 12px 14px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -440,6 +85,7 @@
         <!-- ====== ГЛАВА 1 ====== -->
         <div class="chapter">
             <div class="chapter-title">◈ глава первая — начало</div>
+            <img class="chapter-image" src="165052010376.jpg" alt="Глава первая — Начало" />
             <p>
                 Девушка родилась в прекрасном измерении Сильванов, края, идеже обитают лишь сатиры, лесные девы да малое племя фей. В мире властвовали покой да согласие, а дни текли в бесконечных плясках да песнопениях. Однако, хоть весь род её извечно держался за родные отчие пенаты, душа Эсмы с малых лет вожделела иного. Взоры её устремились за далёкие горизонты — в земли, лежащие далеко за пределом лесного царства.
             </p>
@@ -466,6 +112,7 @@
         <!-- ====== ГЛАВА 2 ====== -->
         <div class="chapter">
             <div class="chapter-title">◈ глава вторая — остров черепа</div>
+            <img class="chapter-image" src="c656a901a3fd81007752cfb65cb562bb.jpg" alt="Глава вторая — Остров Черепа" />
             <p>
                 Пробуждение же вышло отнюдь не сладким: в душный воздух въелась смердящая мешанина из тяжелого людского пота, тухлой рыбы да приторной сладковатой смуты — то ли от дешёвого хмеля, то ли от чужеземных пряностей.
             </p>
@@ -501,6 +148,7 @@
         <!-- ====== ГЛАВА 3 ====== -->
         <div class="chapter">
             <div class="chapter-title">◈ глава третья — скитание по подземью и алхимия</div>
+            <img class="chapter-image" src="88727effdacbacf39d500384cab39a9d.jpg" alt="Глава третья — Скитание по подземью и алхимия" />
             <p>
                 К двадцати годам Эсмеральда простилась с орком и вновь ушла в одинокое плавание, стараясь избегать больших городов. Повсюду висели листовки с её портретом и сулящий богатство наградой: обиженный шейх жаждал вернуть то, что так дерзко от него сбежало.
             </p>
@@ -527,6 +175,7 @@
         <!-- ====== ГЛАВА 4 ====== -->
         <div class="chapter">
             <div class="chapter-title">◈ глава четвёртая — золотой посох</div>
+            <img class="chapter-image" src="1c39315928a3c7fe4af227e88f8f9559.jpg" alt="Глава четвёртая — Золотой Посох" />
             <p>
                 Почти год Эсмеральда делила хлеб, дорогу и песни с ватагой <span class="highlight">«Золотого Посоха»</span>. Это были не просто музыканты, а вольные души, чародеи звука и короли дорог, не знавшие над собой иной власти, кроме ритма сердца. Вместе с ними сатирка залечила раны прошлого.
             </p>
@@ -566,5 +215,6 @@
 
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
