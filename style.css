@@ -225,7 +225,7 @@ body {
 }
 
 /* ============================================================
-   ГЛАВЫ С КАРТИНКАМИ
+   ГЛАВЫ — ФОТО СБОКУ
    ============================================================ */
 .chapter {
     padding: 18px 20px;
@@ -250,13 +250,27 @@ body {
     text-transform: uppercase;
 }
 
-/* ---------- КАРТИНКА ГЛАВЫ ---------- */
+/* Лейаут: фото слева, текст справа */
+.chapter-layout {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+/* ---------- ОБЁРТКА ДЛЯ ФОТО ---------- */
+.chapter-image-wrapper {
+    flex: 0 0 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .chapter-image {
     width: 100%;
-    max-height: 320px;
+    height: auto;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 4px;
-    margin-bottom: 14px;
     border: 1px solid #1a0d0d;
     display: block;
     transition: all 0.4s ease;
@@ -267,32 +281,51 @@ body {
 .chapter-image:hover {
     filter: brightness(1.1) saturate(1.1) drop-shadow(0 0 25px rgba(176, 106, 90, 0.4));
     border-color: #b06a5a;
-    transform: scale(1.01);
+    transform: scale(1.02);
     box-shadow: 0 0 40px rgba(176, 106, 90, 0.15);
 }
 
-.chapter p {
+/* ---------- ПОДПИСЬ ПОД ФОТО ---------- */
+.image-caption {
+    display: block;
+    margin-top: 6px;
+    color: #6a5550;
+    font-size: 11px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ---------- ТЕКСТ ГЛАВЫ ---------- */
+.chapter-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.chapter-text p {
     color: #c4b0a8;
     font-size: 15px;
     line-height: 1.7;
     margin-bottom: 10px;
 }
 
-.chapter p:last-child {
+.chapter-text p:last-child {
     margin-bottom: 0;
 }
 
-.chapter .highlight {
+.chapter-text .highlight {
     color: #b06a5a;
     font-weight: 600;
 }
 
-.chapter .italic {
+.chapter-text .italic {
     font-style: italic;
     color: #8a7068;
 }
 
-.chapter .curse-text {
+.chapter-text .curse-text {
     display: block;
     border-left: 2px solid #2a1515;
     padding: 8px 16px;
@@ -302,7 +335,7 @@ body {
     font-size: 14px;
 }
 
-.chapter .diary-entry {
+.chapter-text .diary-entry {
     display: block;
     border-left: 2px solid #4a2222;
     padding: 8px 16px;
@@ -312,7 +345,7 @@ body {
     font-size: 14px;
 }
 
-.chapter ul {
+.chapter-text ul {
     color: #c4b0a8;
     font-size: 15px;
     line-height: 1.7;
@@ -320,16 +353,36 @@ body {
     margin: 8px 0;
 }
 
-.chapter ul li {
+.chapter-text ul li {
     margin-bottom: 2px;
 }
 
-.chapter ul li .highlight {
+.chapter-text ul li .highlight {
     color: #b06a5a;
     font-weight: 600;
 }
 
 /* ---------- АДАПТИВ ---------- */
+@media (max-width: 650px) {
+    .chapter-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chapter-image-wrapper {
+        flex: 0 0 auto;
+        width: 60%;
+        max-width: 220px;
+    }
+
+    .chapter-image {
+        aspect-ratio: auto;
+        max-height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
 @media (max-width: 550px) {
     .sheet {
         padding: 16px 12px 20px;
@@ -349,15 +402,20 @@ body {
         font-size: 14px;
     }
 
-    .chapter p {
-        font-size: 14px;
-    }
-
     .chapter {
         padding: 12px 14px;
     }
 
-    .chapter-image {
-        max-height: 200px;
+    .chapter-text p {
+        font-size: 14px;
+    }
+
+    .chapter-image-wrapper {
+        width: 80%;
+        max-width: 180px;
+    }
+
+    .image-caption {
+        font-size: 10px;
     }
 }
