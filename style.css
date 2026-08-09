@@ -327,12 +327,15 @@ body {
 
 .chapter-text .curse-text {
     display: block;
-    border-left: 2px solid #2a1515;
-    padding: 8px 16px;
-    margin: 10px 0;
+    border-left: 3px solid #6b1a2e;
+    padding: 10px 16px;
+    margin: 12px 0;
     font-style: italic;
-    color: #a08880;
+    color: #c8a090;
     font-size: 14px;
+    background: rgba(107, 26, 46, 0.08);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.6;
 }
 
 .chapter-text .diary-entry {
@@ -417,5 +420,10 @@ body {
 
     .image-caption {
         font-size: 10px;
+    }
+
+    .chapter-text .curse-text {
+        font-size: 13px;
+        padding: 8px 12px;
     }
 }
